@@ -19,14 +19,14 @@
     <div class="row">
     <div class="col-md-4">
     <div class="card text-white mb-4" style="background-color: #483D8B;">
-    <div class="card-body"><a>Blog</a></div>
+    <div class="card-body"><a routerLink="/" style="cursor: pointer;color: white;">Blog</a></div>
     </div>
     </div>
     
     <!--  -->
     <div class="col-md-4">
         <div class="card bg-success text-white mb-4">
-            <div class="card-body"><a>Users List</a></div>
+            <div class="card-body"><a routerLink="/superadmin" style="cursor: pointer; color: white;">Users List</a></div>
             </div>
             </div>
             
@@ -35,7 +35,7 @@
     <!--  -->
     <div class="col-md-4">
         <div class="card bg-danger text-white mb-4">
-        <div class="card-body"><a>Log Out</a></div>
+        <div class="card-body"><a (click)="logout()" style="cursor: pointer; color: white;">Log Out</a></div>
         </div>
         </div>
         
