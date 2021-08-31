@@ -38,5 +38,10 @@ newPost(post:any){
   .subscribe(data=>{console.log(data)})
 }
 
+//get posts
+getPosts(){
+  return this.http.get("http://localhost:8000/posts")
+}
+
 
 }

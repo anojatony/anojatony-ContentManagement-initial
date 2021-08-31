@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  posts=[{
+    id:'',
+    title:'',
+    author:'',
+    introduction:'',
+    content:'',
+    category:'',
+    date:'',
+    image:''
+  }]
+
+  constructor(private blogService:BlogService,private router:Router) { }
 
   ngOnInit(): void {
+    this.blogService.getPosts().subscribe((data)=>{
+      this.posts=JSON.parse(JSON.stringify(data));
+    })
+
   }
 
 }

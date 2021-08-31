@@ -232,6 +232,17 @@ app.post('/login', async(req, res) => {
     
   })
   
+//get posts
+// get users
+app.get('/posts',function(req,res){
+  res.header("Access-Control-Allow-Origin","*")
+  res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+      Blog.find()
+      .then(function(posts){
+         res.send(posts)     
+      })
+  })
+
 
 //port
 
