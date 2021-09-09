@@ -10,18 +10,11 @@ mongoose.connect('mongodb+srv://userone:userone@ictak-files.utn4t.mongodb.net/Co
 // Schema definition
 const Schema=mongoose.Schema;
 
-const BlogSchema=new Schema({
-    title:String,
-    author:String,
-    email:String,
-    introduction:String,
-    content:String,
-    category:String,
-    date:String,
-    image:String
+const CatSchema=new Schema({
+   catname:String
 });
 
 // Model Creation
-var Blogdata=mongoose.model('blogdata',BlogSchema);
+var Category=mongoose.model('categorydata',CatSchema);
 
-module.exports = Blogdata;
+module.exports = Category;

@@ -51,7 +51,7 @@ export class SuperadminComponent implements OnInit {
   logout()
   {
   localStorage.removeItem('rootuser');
-  localStorage.removeItem('user');
+  localStorage.removeItem('userid');
   localStorage.removeItem('admin');
   this.router.navigate(['/']);
   }

@@ -15,6 +15,11 @@ import { TokenInterceptorService} from './token-interceptor.service';
 import { BlogService } from './blog.service';
 import { AuthService } from './auth.service';
 import { CreatepostComponent } from './createpost/createpost.component';
+import { CategoryComponent } from './category/category.component';
+import { ManagecategoryComponent } from './managecategory/managecategory.component';
+import { SingleblogComponent } from './singleblog/singleblog.component';
+import { UpdateblogComponent } from './updateblog/updateblog.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { CreatepostComponent } from './createpost/createpost.component';
     SignupComponent,
     SuperadminComponent,
     BlogComponent,
-    CreatepostComponent
+    CreatepostComponent,
+    CategoryComponent,
+    ManagecategoryComponent,
+    SingleblogComponent,
+    UpdateblogComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,13 @@
 
 const express=require('express');
 const app = new express();
+var mongoose=require('mongoose');
 const multer = require('multer');
 const cors=require('cors');
 const jwt=require('jsonwebtoken');
 const User = require('./src/model/Userdata');
 const Blog = require('./src/model/Blogdata');
+const Category = require('./src/model/Categorydata');
 
 email='admin@gmail.com';
 password='Admin123@';
@@ -145,6 +147,7 @@ app.post('/post', upload.single('image'),function (req,res){
  var blog={
    title:req.body.title,
    author:req.body.author,
+   email:req.body.email,
    introduction:req.body.introduction,
    content:req.body.content,
    category:req.body.category,
@@ -209,15 +212,13 @@ app.post('/login', async(req, res) => {
        let rootuser=jwt.sign(payload,'secretKey')  
        res.status(200).send({rootuser})
       }
-     else if(user){
-      let payload={subject:emaild+pwdd}
-      let user=jwt.sign(payload,'secretKey')  
+     else if(user){ 
       res.status(200).send({user})
        console.log("success")
      }
      else if(token){
-      let payload={subject:emaild+pwdd}
-      let token=jwt.sign(payload,'secretKey')  
+      // let payload={subject:emaild+pwdd}
+      // let token=jwt.sign(payload,'secretKey')  
       res.status(200).send({token})
        console.log("admin")
      }
@@ -232,7 +233,6 @@ app.post('/login', async(req, res) => {
     
   })
   
-//get posts
 // get users
 app.get('/posts',function(req,res){
   res.header("Access-Control-Allow-Origin","*")
@@ -242,6 +242,149 @@ app.get('/posts',function(req,res){
          res.send(posts)     
       })
   })
+
+//add category
+//create post
+app.post('/addcat',function (req,res){
+  // console.log("hi")
+    res.header("Access-Control-Allow-Origin","*")
+    res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    console.log(req.body);
+   
+ var category={
+   catname:req.body.cat
+   
+}
+var cat = Category(category);
+cat.save();
+})
+
+//getcategory
+app.get('/category',function(req,res){
+  res.header("Access-Control-Allow-Origin","*")
+  res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+      Category.find()
+      .then(function(cat){
+         res.send(cat)     
+      })
+  })
+//get updateid category
+app.get('/updatecat/:id',  (req, res) => {
+
+  const id = req.params.id;
+    Category.findOne({"_id":id})
+    .then((cat)=>{
+        res.send(cat);
+    });
+  })
+
+//updatecategory
+app.put('/updatecategory',(req,res)=>{
+  console.log(req.body)
+  id= req.body.id,
+  catname= req.body.cat,
+  
+ Category.findByIdAndUpdate({"_id":id},
+                              {$set:{"catname":catname,
+                               }})
+ .then(function(){
+     res.send();
+ })
+})
+
+//delete category
+app.delete('/deletecat/:id',(req,res)=>{
+   
+  id = req.params.id;
+  Category.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.send();
+  })
+})
+
+//get singleblog
+app.get('/singleblog/:id',  (req, res) => {
+
+  const id = req.params.id;
+    Blog.findOne({"_id":id})
+    .then((post)=>{
+        res.send(post);
+    });
+  })
+
+// search category
+app.get('/category/:cat',function(req,res){
+  res.header("Access-Control-Allow-Origin","*")
+  res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+
+      const cat = req.params.cat;
+
+      Blog.find({"category": cat})
+      .then(function(posts){
+         res.send(posts)     
+      })
+  })
+
+//get update blog
+app.get('/update/:id',  (req, res) => {
+
+  const id = req.params.id;
+    Blog.findOne({"_id":id})
+    .then((post)=>{
+        res.send(post);
+    });
+  })
+
+//get users
+ app.get('/usersget/:id',function(req,res){
+  res.header("Access-Control-Allow-Origin","*")
+  res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  if(mongoose.Types.ObjectId.isValid(req.params.id)) {
+      User.findOne({"_id":req.params.id})
+      .then(function(user){
+         res.send(user)     
+      })
+  }
+  })
+
+//updateblog
+
+app.put('/updateblog',upload.single('image'),(req,res)=>{
+
+  id=req.body.id
+  title= req.body.title,
+  author = req.body.author,
+  email=req.body.email,
+  genre = req.body.genre,
+  content = req.body.content,
+  category=req.body.category,
+  date=req.body.date,
+  image = 'http://localhost:8000/images/'+ req.file.filename
+  
+    Blog.findByIdAndUpdate({"_id":id},
+                              {$set:{"title":title,
+                              "author":author,
+                              "genre":genre,
+                              "content":content,
+                              "category":category,
+                              "date":date,
+                              "image":image}})
+ .then(function(){
+     res.send();
+ })
+})
+
+//delete blog
+app.delete('/deleteblog/:id',(req,res)=>{
+   
+  id = req.params.id;
+  Blog.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.send();
+  })
+})
 
 
 //port

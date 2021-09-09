@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 
 @Component({
-  selector: 'app-createpost',
-  templateUrl: './createpost.component.html',
-  styleUrls: ['./createpost.component.css']
+  selector: 'app-updateblog',
+  templateUrl: './updateblog.component.html',
+  styleUrls: ['./updateblog.component.css']
 })
-export class CreatepostComponent implements OnInit {
+export class UpdateblogComponent implements OnInit {
 
   posts={
+    id:'',
     title:'',
     author:'',
     email:'',
@@ -19,8 +20,6 @@ export class CreatepostComponent implements OnInit {
     date:'',
     image:''
   }
-  name = 'ng2-ckeditor'; 
-  ckeConfig:any;
 
   user={
     firstname:'',
@@ -30,6 +29,12 @@ export class CreatepostComponent implements OnInit {
     phone:'',
     role:''
   }
+
+  name = 'ng2-ckeditor'; 
+  ckeConfig:any;
+  useremaill:any;
+  admin:any
+
   
   categorys=[{
     catname:''
@@ -38,22 +43,22 @@ export class CreatepostComponent implements OnInit {
   constructor(private blogService:BlogService, private router:Router) { }
 
   ngOnInit(): void {
-
     this.ckeConfig = {    
-            allowedContent: false,    
-            extraPlugins: 'divarea',    
-            forcePasteAsPlainText: true    
-          };   
+      allowedContent: false,    
+      extraPlugins: 'divarea',    
+      forcePasteAsPlainText: true    
+    };   
 
-          this.blogService.getCategory().subscribe((data)=>{
-          this.categorys=JSON.parse(JSON.stringify(data));
-            })
+    this.blogService.getCategory().subscribe((data)=>{
+    this.categorys=JSON.parse(JSON.stringify(data));
+      })
 
-          
-        let userid = localStorage.getItem("userid");
-        this.blogService.getuser(userid).subscribe((data)=>{
-        this.user=JSON.parse(JSON.stringify(data));
-        })  
+    let postid = localStorage.getItem("updateblog");
+    this.blogService.getupdateBlog(postid).subscribe((data)=>{
+    this.posts=JSON.parse(JSON.stringify(data));
+    })
+
+
   }
 
   selectImage(event:any){
@@ -67,7 +72,8 @@ export class CreatepostComponent implements OnInit {
      this.posts.category=event.target.value;
        }
    
-     createpost(){
+     updatepost(posts:any){
+      posts=posts._id
        const formData=new FormData();
        formData.append('image', this.posts.image)
        formData.append('title',this.posts.title)
@@ -77,15 +83,12 @@ export class CreatepostComponent implements OnInit {
        formData.append('content',this.posts.content)
        formData.append('category',this.posts.category)
        formData.append('date',this.posts.date)
-       if(this.user.email!=this.posts.email){
-        alert("Please enter your registered email id!")
-       }
-       else{
-      this.blogService.newPost(formData);
-       console.log("Called");
-       alert("Thank you, your post be will be uploaded !!!");
+       formData.append('id',posts)
+       this.blogService.editBlog(formData)
+       console.log("called")
+       alert("Updated Successfully!");
        this.router.navigate(['/']);
-       }
+
      }
 
 }

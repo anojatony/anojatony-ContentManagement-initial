@@ -43,8 +43,9 @@
     text-decoration: none;
   } 
   .btu{
-      /* background-image: linear-gradient(-90deg, #FF8C00, #DC143C); */
-      background-color: #3bb497;
+      /* background-image: linear-gradient(-90deg, #2f00ff, #8214dc);  */
+      background-image: linear-gradient(-90deg, #ff0077, #8214dc);  
+      /* background-color: #3bb497; */
       color: white;
       padding: 15px;
       width: 40%;
@@ -66,8 +67,8 @@
   }
   
   .first{
-      /* background-image: linear-gradient(-90deg, #FF8C00, #DC143C); */
-      background-color: #3bb497;
+    /* background-image: linear-gradient(-90deg, #2f00ffe7, #8214dc);  */
+       background-color: #a314dc; 
       height: 100%;
       /* width: 540px; */
   }
@@ -77,8 +78,8 @@
   }
   .first h1{
       color: white;
-      margin-top: 30%;
-      margin-left: 16%;
+      margin-top: 27%;
+      margin-left: 32%;
       width: 100%;
   }
   
@@ -88,12 +89,12 @@
       border-radius: 25px;
        padding: 15px; 
        border:none;
-       margin-left: 15%;
+       margin-left: 20%;
        margin-bottom: 10%;
        width: 50%;
   }
   #tag{
       margin-top: 20%;
-      margin-left: 19%;
+      margin-left: 22%;
       margin-bottom: 8%;
   }

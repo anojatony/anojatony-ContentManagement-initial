@@ -1,0 +1,40 @@
+/* footer */
+.footer{
+    background-color: rgba(0, 0, 0, 0.815);
+    color: white;
+    bottom:0px;
+}
+.footer h5{
+    font-weight: bolder;
+    margin-bottom: 20px;
+    padding-top: 30px;
+}
+.footer .social a{
+    color: white;
+    text-decoration: none;
+}
+.footer .social a:hover{
+    color: orangered;
+}
+.footer .social .fa{
+color: white;
+}
+.footer .social{
+    margin-left: 20%;
+}
+.footer hr{
+    border-color: white;
+}
+.footer .place a{
+    color: white;
+    text-decoration: none;
+}
+.footer .place a:hover{
+    color: orangered;
+}
+.copyright{
+    text-align: center;
+    margin-bottom: -80px 0;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
