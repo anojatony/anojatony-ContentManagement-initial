@@ -1,66 +1,131 @@
-
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" rouerLink="">
-            <img src="/assets/images/logo2.png" height="70px" width="80px">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/managecategory" *ngIf="blogService.getValue()">Manage Category</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/createpost" *ngIf="blogService.getValue() || blogService.getUser()" >Create post</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/login" *ngIf="!blogService.getValue() && !blogService.getUser()">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/signup" *ngIf="!blogService.getValue() && !blogService.getUser()">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="cursor: pointer;" (click)="logout()" *ngIf="blogService.getValue() || blogService.getUser()">Log Out</a>
-              </li>
-         </ul>
-         
-         </div>     
-      </nav>
-    <!-- ends -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" rouerLink="">
+      <img src="/assets/images/logo2.png" height="70px" width="80px" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/blog"
+            *ngIf="blogService.getValue() || blogService.getUser()"
+            >Blog</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/managecategory"
+            *ngIf="blogService.getValue()"
+            >Manage Category</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/yourposts"
+            *ngIf="blogService.getValue() || blogService.getUser()"
+            >Your posts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/createpost"
+            *ngIf="blogService.getValue() || blogService.getUser()"
+            >Create post</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            *ngIf="!blogService.getValue() && !blogService.getUser()"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/signup"
+            *ngIf="!blogService.getValue() && !blogService.getUser()"
+            >Sign Up</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            style="cursor: pointer"
+            (click)="logout()"
+            *ngIf="blogService.getValue() || blogService.getUser()"
+            >Log Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ends -->
 
-<!--  -->
-<h2 id="blos">{{cat}}</h2>
-<section class="blogs">
+  <!--  -->
+  <h2 id="blos">{{ cat }}</h2>
+  <section class="blogs">
     <div class="container">
-    <div class="row">
-<!--  -->
-    <div class="col-md-4" *ngFor='let post of posts'>
-        <div class="card mb-4 shadow-sm">
-
-            <img [src]="post.image"  class="img-fluid" alt="">
+      <div class="row">
+        <!--  -->
+        <div class="col-md-4" *ngFor="let post of posts">
+          <div class="card mb-4 shadow-sm">
+            <img [src]="post.image" class="img-fluid" alt="" />
             <div class="card-body">
-              <h2>{{post.title}}</h2>
-          
-          <div class="card-text">
-           <p>{{post.introduction}}</p>
-           <div>{{post.author}}, {{post.category}}</div>
-           <a rouerLink="" class="btn btn-primary" style=" cursor: pointer;" (click)="update(post)" *ngIf="user.email===post.email || blogService.getValue()" >Update</a>
-           <a rouerLink="" class="btn btn-success" style=" margin-left: 5%; cursor: pointer;" (click)="delete(post)" *ngIf="user.email===post.email || blogService.getValue()">Delete</a>
-           <a rouerLink="" class="btn btn-danger" style="margin-top: 2%; float: right; cursor: pointer;" (click)="singleBlog(post)">Read More</a>
-          </div>
-      </div>
-          
-    </div>
-    </div>
-    <!--  -->
+              <h2>{{ post.title }}</h2>
 
+              <div class="card-text">
+                <p style="text-align: justify">{{ post.introduction }}</p>
+                <div class="details">
+                  {{ post.author }}, {{ post.category }}
+                </div>
+                <a
+                  rouerLink=""
+                  class="btn btn-primary"
+                  style="cursor: pointer"
+                  (click)="update(post)"
+                  *ngIf="user.email === post.email || blogService.getValue()"
+                  >Update</a
+                >
+                <a
+                  rouerLink=""
+                  class="btn btn-success"
+                  style="margin-left: 5%; cursor: pointer"
+                  (click)="delete(post)"
+                  *ngIf="user.email === post.email || blogService.getValue()"
+                  >Delete</a
+                >
+                <a
+                  rouerLink=""
+                  class="btn btn-danger"
+                  style="float: right; cursor: pointer"
+                  (click)="singleBlog(post)"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
     </div>
-    </div>
-    </section>
-<!--  -->
-<app-footer></app-footer>
+  </section>
+  <!--  -->
+  <app-footer></app-footer>
+</div>

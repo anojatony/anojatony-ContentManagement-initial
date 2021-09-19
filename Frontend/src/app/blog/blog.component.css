@@ -1,57 +1,55 @@
-
-.firstdiv .navbar{
- background-image: linear-gradient(-90deg, #ff0077, #8214dc);  
-    /* background-color: #8214dc; */
-  
+.firstdiv .navbar {
+  background-image: linear-gradient(-90deg, #ff0077, #8214dc);
+  /* background-color: #8214dc; */
 }
-.firstdiv a{
-    color: white;
-    font-weight: bold;
+.firstdiv a {
+  color: white;
+  font-weight: bold;
 }
-.firstdiv a:hover{
-    color: lightblue;
+.firstdiv a:hover {
+  color: lightblue;
 }
 
-@media (max-width:909px) {
-    .firstdiv .navbar-nav .active-route {
-        border-bottom: none;
-    }
- }
+@media (max-width: 909px) {
+  .firstdiv .navbar-nav .active-route {
+    border-bottom: none;
+  }
+}
 
-.card img{
-    height: 220px;
-    width: 100%;
+.card img {
+  height: 220px;
+  width: 100%;
 }
-.card{
-    height: 560px;
+.card {
+  height: 560px;
 }
-.card h2{
-    /* margin-left: 3.5%; */
-    text-align: center;
-    color: #223c50;
-    font-weight: bolder;
+.card h2 {
+  /* margin-left: 3.5%; */
+  text-align: center;
+  color: #223c50;
+  font-weight: bolder;
 }
-.card-text{
-    padding-left: 15px;
-    padding-right: 15px;
-    /* padding-top: 15px; */
-    padding-bottom: 20px;
-    
+.card-text {
+  padding-left: 15px;
+  padding-right: 15px;
+  /* padding-top: 15px; */
+  padding-bottom: 20px;
 }
-.card-text p{
-    font-family: 'Roboto', sans-serif;
-    text-align: justify;
+.card-text p {
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
 }
-.second .navbar{
-background-color: rgba(0, 0, 0, 0.815);
+.second .navbar {
+  /* background-color: rgba(0, 0, 0, 0.815); */
+  background-color: #1b3040;
 }
-.second a{
-    color: white;
-    font-weight: bold;
+.second a {
+  color: white;
+  font-weight: bold;
 }
-.blog{
-    margin-top: 5%;
+.blog {
+  margin-top: 5%;
 }
 .active-route {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }

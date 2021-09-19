@@ -20,6 +20,7 @@ import { ManagecategoryComponent } from './managecategory/managecategory.compone
 import { SingleblogComponent } from './singleblog/singleblog.component';
 import { UpdateblogComponent } from './updateblog/updateblog.component';
 import { FooterComponent } from './footer/footer.component';
+import { YourpostsComponent } from './yourposts/yourposts.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     ManagecategoryComponent,
     SingleblogComponent,
     UpdateblogComponent,
-    FooterComponent
+    FooterComponent,
+    YourpostsComponent
   ],
   imports: [
     BrowserModule,

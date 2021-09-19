@@ -1,40 +1,82 @@
 <div class="row">
+  <!-- 1st column -->
 
-    <!-- 1st column -->
-    
-    <div class="col-md-4">
-      <div class="first">
-        <img src="/assets/images/logo2.png" height="120px" width="130px">
-        <h1>Blog</h1>
-        <h1 id="tag">New Here?</h1>
-        <button class="but" routerLink="/signup" style="font-weight: bold;">Sign Up</button>
+  <div class="col-md-4">
+    <div class="first">
+      <img src="/assets/images/logo2.png" height="120px" width="130px" />
+      <h1>Blog</h1>
+      <h1 id="tag">New Here?</h1>
+      <button class="but" routerLink="/signup" style="font-weight: bold">
+        Sign Up
+      </button>
     </div>
-    </div>
-    <!-- 2nd column -->
-    <div class="col-md-8">
+  </div>
+  <!-- 2nd column -->
+  <div class="col-md-8">
     <div class="login-box">
-    <form name="form" #f = "ngForm" (ngSubmit)="f.form.valid && loginUser()">
-          
-          <h2>Login to Your Account</h2>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" [(ngModel)]="user.email"  #email="ngModel" [ngClass]="{'invalid-data': email.invalid && f.submitted, 'valid-data': email.valid && f.submitted}" [class.error-border]="email.invalid && f.submitted" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-            <small style="color: black; " *ngIf ="email.invalid && f.submitted || email.invalid && email.touched">Enter a Valid Email Id</small>  
-            </div>
-            <br>
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel"  [ngClass]="{'invalid-data': password.invalid && f.submitted, 'valid-data': password.valid && f.submitted}" [class.error-border]="password.invalid && f.submitted" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])[A-Za-z\d$@$!%?&]{8,}$" required>
-            <small style="color: black; text-align: justify;"  *ngIf = "password.invalid && f.submitted || password.invalid && password.touched">Password should contain minimum 8 characters with at least one uppercase, lowercase, special characters & digits.</small>    
-          </div>
-          <br>
-          <button type="submit" class="btu">Sign In</button>
-          <!-- <div class="text-center">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && loginUser()">
+        <h2>Login to Your Account</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter your email"
+            name="email"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            [ngClass]="{
+              'invalid-data': email.invalid && f.submitted,
+              'valid-data': email.valid && f.submitted
+            }"
+            [class.error-border]="email.invalid && f.submitted"
+            pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required
+          />
+          <small
+            style="color: black; font-weight: bold"
+            *ngIf="
+              (email.invalid && f.submitted) || (email.invalid && email.touched)
+            "
+            >Enter a Valid Email Id</small
+          >
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter your password"
+            name="password"
+            [(ngModel)]="user.password"
+            #password="ngModel"
+            [ngClass]="{
+              'invalid-data': password.invalid && f.submitted,
+              'valid-data': password.valid && f.submitted
+            }"
+            [class.error-border]="password.invalid && f.submitted"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])[A-Za-z\d$@$!%?&]{8,}$"
+            required
+          />
+          <small
+            style="color: black; text-align: justify; font-weight: bold"
+            *ngIf="
+              (password.invalid && f.submitted) ||
+              (password.invalid && password.touched)
+            "
+            >Password should contain minimum 8 characters with at least one
+            uppercase, lowercase, special characters & digits.</small
+          >
+        </div>
+        <br />
+        <button type="submit" class="btu">Sign In</button>
+        <!-- <div class="text-center">
               <a routerLink="/signup">Create an account</a>
             </div> -->
-        </form>  
-        </div>
-        </div>
-        <!-- 2nd column -->
-        </div>
-        <!-- row -->
+      </form>
+    </div>
+  </div>
+  <!-- 2nd column -->
+</div>
+<!-- row -->

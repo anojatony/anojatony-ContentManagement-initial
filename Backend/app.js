@@ -217,8 +217,6 @@ app.post('/login', async(req, res) => {
        console.log("success")
      }
      else if(token){
-      // let payload={subject:emaild+pwdd}
-      // let token=jwt.sign(payload,'secretKey')  
       res.status(200).send({token})
        console.log("admin")
      }
@@ -233,7 +231,7 @@ app.post('/login', async(req, res) => {
     
   })
   
-// get users
+// get posts
 app.get('/posts',function(req,res){
   res.header("Access-Control-Allow-Origin","*")
   res.header("Access-Control-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
@@ -326,6 +324,17 @@ app.get('/category/:cat',function(req,res){
       })
   })
 
+  // search yourposts
+  app.get('/yourposts/:email',function(req,res){
+
+      const email=req.params.email
+        Blog.find({"email": email})
+        .then(function(posts){
+           res.send(posts)    
+         })
+    })
+
+
 //get update blog
 app.get('/update/:id',  (req, res) => {
 
@@ -343,7 +352,7 @@ app.get('/update/:id',  (req, res) => {
   if(mongoose.Types.ObjectId.isValid(req.params.id)) {
       User.findOne({"_id":req.params.id})
       .then(function(user){
-         res.send(user)     
+         res.send(user)    
       })
   }
   })

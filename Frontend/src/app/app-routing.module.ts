@@ -9,17 +9,19 @@ import { SignupComponent } from './signup/signup.component';
 import { SingleblogComponent } from './singleblog/singleblog.component';
 import { SuperadminComponent } from './superadmin/superadmin.component';
 import { UpdateblogComponent } from './updateblog/updateblog.component';
+import { YourpostsComponent } from './yourposts/yourposts.component';
 
 const routes: Routes = [
-  {path:'',component:BlogComponent},
+  {path:'blog',component:BlogComponent},
   {path:'singleblog',component:SingleblogComponent},
-  {path:'login',component:LoginComponent},
+  {path:'',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'superadmin',component:SuperadminComponent},
   {path:'createpost',component:CreatepostComponent},
   {path:'managecategory',component:ManagecategoryComponent},
   {path:'category/:cat',component:CategoryComponent},
-  {path:'updateblog',component:UpdateblogComponent}
+  {path:'updateblog',component:UpdateblogComponent},
+  {path:'yourposts',component:YourpostsComponent}
 ];
 
 @NgModule({

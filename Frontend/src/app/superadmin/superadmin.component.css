@@ -1,33 +1,33 @@
-.first{
-    background-color: rgba(0, 0, 0, 0.815);
-    height: 100%;
+.first {
+  background-color: rgba(0, 0, 0, 0.815);
+  height: 100%;
 }
-.first a{
-    color: white;
-    font-weight: 500;
-    margin-left: 10%;
+.first a {
+  color: white;
+  font-weight: 500;
+  margin-left: 10%;
 }
-.second{
-    margin-top: 3%;
-    max-width: 75%;
-    margin-left: 3%;
+.second {
+  margin-top: 3%;
+  max-width: 75%;
+  margin-left: 3%;
 }
-.second h1{
-    margin-left: 3%;
+.second h1 {
+  margin-left: 3%;
 }
-.second .card-body{
-    height: 90px;
+.second .card-body {
+  height: 90px;
 }
-.second .card-body a{
-    font-weight: bold;
+.second .card-body a {
+  font-weight: bold;
 }
 
-.footer{
-    color: white; 
-    font-size: smaller;
-    font-weight: bold;
-    background-color: #343a40; 
-    text-align: center;
-    height: 40px;
-    padding: 5px;
+.footer {
+  color: white;
+  font-size: smaller;
+  font-weight: bold;
+  background-color: #343a40;
+  text-align: center;
+  height: 40px;
+  padding: 5px;
 }

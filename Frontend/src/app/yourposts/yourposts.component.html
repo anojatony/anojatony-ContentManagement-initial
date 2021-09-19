@@ -28,7 +28,6 @@
           <a
             class="nav-link"
             routerLink="/managecategory"
-            routerLinkActive="active-route"
             *ngIf="blogService.getValue()"
             >Manage Category</a
           >
@@ -37,6 +36,7 @@
           <a
             class="nav-link"
             routerLink="/yourposts"
+            routerLinkActive="active-route"
             *ngIf="blogService.getValue() || blogService.getUser()"
             >Your posts</a
           >
@@ -79,67 +79,54 @@
   </nav>
   <!-- ends -->
 
-  <input
-    type="text"
-    class="inpu form-control"
-    [(ngModel)]="cat"
-    placeholder="Add Category"
-  /><button class="btn btn-danger" (click)="add()">Add Category</button>
+  <!--  -->
 
-  <div *ngIf="updatetoggle">
-    <input
-      type="text"
-      class="inp form-control"
-      [(ngModel)]="updatecate.catname"
-    /><button class="btn btn-danger but" (click)="updatecat()">
-      Update Category
-    </button>
-  </div>
-  <div class="manage">
-    <div class="table-responsive">
-      <table
-        class="table table-bordered"
-        id="dataTable"
-        width="100%"
-        cellspacing="0"
-      >
-        <thead>
-          <tr>
-            <th>Choose</th>
-            <th style="text-align: center">Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let category of categorys">
-            <td>
-              <input
-                type="checkbox"
-                (change)="check(category)"
-                (change)="change($event)"
-                [disabled]="checkIfOthersAreSelected"
-              />
-            </td>
-            <td style="text-align: center">{{ category.catname }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="text-align: center; margin-top: 2%; margin-bottom: 8%">
-        <button
-          class="btn btn-danger"
-          (click)="update()"
-          style="margin-right: 2%"
-        >
-          Update
-        </button>
-        <button
-          class="btn btn-primary"
-          (click)="delete()"
-          style="margin-right: 2%"
-        >
-          Delete
-        </button>
+  <section class="blogs">
+    <div class="container">
+      <div class="row">
+        <!--  -->
+        <div class="col-md-4" *ngFor="let post of posts">
+          <div class="card mb-4 shadow-sm">
+            <img [src]="post.image" class="img-fluid" alt="" />
+            <div class="card-body">
+              <h2>{{ post.title }}</h2>
+
+              <div class="card-text">
+                <p style="text-align: justify">{{ post.introduction }}</p>
+                <div class="details">
+                  {{ post.author }}, {{ post.category }}
+                </div>
+                <a
+                  rouerLink=""
+                  class="btn btn-primary"
+                  style="cursor: pointer"
+                  (click)="update(post)"
+                  *ngIf="user.email === post.email"
+                  >Update</a
+                >
+                <a
+                  rouerLink=""
+                  class="btn btn-success"
+                  style="margin-left: 5%; cursor: pointer"
+                  (click)="delete(post)"
+                  *ngIf="user.email === post.email"
+                  >Delete</a
+                >
+                <a
+                  rouerLink=""
+                  class="btn btn-danger"
+                  style="float: right; cursor: pointer"
+                  (click)="singleBlog(post)"
+                  >Read More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
       </div>
     </div>
-  </div>
+  </section>
+  <!--  -->
   <app-footer></app-footer>
 </div>

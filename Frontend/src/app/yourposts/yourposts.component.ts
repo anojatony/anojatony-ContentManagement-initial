@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import Swal from 'sweetalert2';
+import { map, mergeMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
+  selector: 'app-yourposts',
+  templateUrl: './yourposts.component.html',
+  styleUrls: ['./yourposts.component.css'],
 })
-export class BlogComponent implements OnInit {
+export class YourpostsComponent implements OnInit {
   posts = [
     {
       id: '',
@@ -32,27 +33,34 @@ export class BlogComponent implements OnInit {
     role: '',
   };
 
-  categorys = [
-    {
-      catname: '',
-    },
-  ];
-
   constructor(public blogService: BlogService, private router: Router) {}
 
   ngOnInit(): void {
-    this.blogService.getPosts().subscribe((data) => {
-      this.posts = JSON.parse(JSON.stringify(data));
-    });
-
-    this.blogService.getCategory().subscribe((data) => {
-      this.categorys = JSON.parse(JSON.stringify(data));
-    });
-
     let userid = localStorage.getItem('userid');
-    this.blogService.getuser(userid).subscribe((data) => {
-      this.user = JSON.parse(JSON.stringify(data));
-    });
+    this.blogService.getuser(userid)
+      .pipe(
+        map((data) => {
+          this.user = JSON.parse(JSON.stringify(data));
+          return this.user;
+        }),
+        mergeMap((user) => this.blogService.yourPosts(user.email))
+      )
+      .subscribe((data) => {
+        this.posts = JSON.parse(JSON.stringify(data));
+      });
+
+    let adminid = localStorage.getItem('admin');
+    this.blogService.getuser(adminid)
+      .pipe(
+        map((data) => {
+          this.user = JSON.parse(JSON.stringify(data));
+          return this.user;
+        }),
+        mergeMap((user) => this.blogService.yourPosts(user.email))
+      )
+      .subscribe((data) => {
+        this.posts = JSON.parse(JSON.stringify(data));
+      });
   }
 
   singleBlog(post: any) {
@@ -79,7 +87,6 @@ export class BlogComponent implements OnInit {
           this.posts = this.posts.filter((p) => p !== post);
         });
 
-        // Swal.fire('Deleted!','Your imaginary file has been deleted.','success')
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -88,7 +95,7 @@ export class BlogComponent implements OnInit {
           timer: 1500,
         });
       } else {
-        this.router.navigate(['/blog']);
+        this.router.navigate(['/yourposts']);
       }
     });
   }

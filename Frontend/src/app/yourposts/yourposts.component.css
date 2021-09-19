@@ -1,9 +1,17 @@
-#blos {
-  margin-top: 5%;
-  margin-bottom: 3%;
-  margin-left: 10%;
-  color: black;
+.blogs {
+  margin-top: 6%;
+  margin-bottom: 5%;
 }
+.active-route {
+  border-bottom: 2px solid white;
+}
+
+@media (max-width: 909px) {
+  .navbar-nav .active-route {
+    border-bottom: none;
+  }
+}
+
 .navbar {
   /* background-image: linear-gradient(-90deg, #2f00ff, #8214dc);  */
   background-image: linear-gradient(-90deg, #ff0077, #8214dc);

@@ -93,6 +93,11 @@ searchCategory(cat:any){
   return this.http.get("http://localhost:8000/category/"+cat);
 }
 
+//yourposts component-yourposts category
+yourPosts(email:any){
+  return this.http.get("http://localhost:8000/yourposts/"+email);
+}
+
 //get update blog
 getupdateBlog(id:any){
   return this.http.get("http://localhost:8000/update/"+id);
@@ -122,6 +127,10 @@ getValue(){
 
 getUser(){
   return !!localStorage.getItem("userid")
+}
+
+getRootUser(){
+  return !!localStorage.getItem("rootuser")
 }
 
 }

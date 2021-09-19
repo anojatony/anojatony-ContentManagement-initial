@@ -1,42 +1,46 @@
-.manage{
-    max-width: 70%;
-    margin-left: 10%;
-    margin-top: 3%;
+.manage {
+  max-width: 70%;
+  margin-left: 10%;
+  margin-top: 3%;
 }
-.navbar{
-    /* background-image: linear-gradient(-90deg, #2f00ff, #8214dc);  */
-    background-image: linear-gradient(-90deg, #ff0077, #8214dc); 
+.navbar {
+  /* background-image: linear-gradient(-90deg, #2f00ff, #8214dc);  */
+  background-image: linear-gradient(-90deg, #ff0077, #8214dc);
 }
-.navbar-nav a{
-    color: white;
-    font-weight: bold;
+.navbar-nav a {
+  color: white;
+  font-weight: bold;
 }
-.navbar-nav a:hover{
-    color: lightblue;
+.navbar-nav a:hover {
+  color: lightblue;
 }
-@media (max-width:909px) {
-    .navbar-nav .active-route {
-        border-bottom: none;
-    }
- }
+@media (max-width: 909px) {
+  .navbar-nav .active-route {
+    border-bottom: none;
+  }
+}
 
- .first{
-    margin-top: 5%;
-    margin-left: 60%;
- }
-
-.inp{
-margin-left: 55%;
-margin-top: 2%;
+.inpu {
+  margin-left: 50%;
+  margin-right: 1%;
+  margin-top: 7%;
 }
-.but{ 
-    margin-left: 2%; 
-    
+.inp {
+  margin-left: 50%;
+  margin-top: 2%;
 }
- .another{
+.form-control {
+  min-width: 0;
+  width: auto;
+  display: inline;
+}
+.but {
+  margin-left: 2%;
+}
+/* .another{
     margin-left: 2%;
-} 
+}  */
 
 .active-route {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
