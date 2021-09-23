@@ -2,7 +2,11 @@
   margin-top: 5%;
   margin-bottom: 3%;
   margin-left: 10%;
-  color: black;
+  color: #1b3040;
+  font-weight: bold;
+}
+.blogs{
+  margin-bottom: 5%;
 }
 .navbar {
   /* background-image: linear-gradient(-90deg, #2f00ff, #8214dc);  */

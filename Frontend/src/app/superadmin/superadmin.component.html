@@ -7,22 +7,12 @@
     <div class="col-md-2 first">
       <a
         class="nav-link"
-        style="margin-top: 40%; cursor: pointer"
-        routerLink="/blog"
-        >Blog</a
-      >
-      <a
-        class="nav-link"
-        style="margin-top: 3%; cursor: pointer"
-        routerLink="/superadmin"
-        >Users List</a
-      >
+        style="margin-top: 50%; cursor: pointer"
+        routerLink="/superadmin">Users List</a>
       <a
         class="nav-link"
         style="margin-top: 3%; margin-bottom: 230%; cursor: pointer"
-        (click)="logout()"
-        >Log Out</a
-      >
+        (click)="logout()">Log Out</a>
     </div>
 
     <!-- second div -->
@@ -34,9 +24,7 @@
         <div class="col-md-4">
           <div class="card text-white mb-4" style="background-color: #483d8b">
             <div class="card-body">
-              <a routerLink="/blog" style="cursor: pointer; color: white"
-                >Blog</a
-              >
+              <a routerLink="/superadmin" style="cursor: pointer; color: white">Dashboard</a>
             </div>
           </div>
         </div>
@@ -45,9 +33,7 @@
         <div class="col-md-4">
           <div class="card bg-success text-white mb-4">
             <div class="card-body">
-              <a routerLink="/superadmin" style="cursor: pointer; color: white"
-                >Users List</a
-              >
+              <a routerLink="/superadmin" style="cursor: pointer; color: white">Users List</a>
             </div>
           </div>
         </div>
@@ -58,9 +44,7 @@
         <div class="col-md-4">
           <div class="card bg-danger text-white mb-4">
             <div class="card-body">
-              <a (click)="logout()" style="cursor: pointer; color: white"
-                >Log Out</a
-              >
+              <a (click)="logout()" style="cursor: pointer; color: white">Log Out</a>
             </div>
           </div>
         </div>
@@ -75,8 +59,7 @@
           class="table table-bordered"
           id="dataTable"
           width="100%"
-          cellspacing="0"
-        >
+          cellspacing="0">
           <thead>
             <tr>
               <th>First Name</th>
@@ -99,8 +82,7 @@
                 <button
                   class="btn btn-danger"
                   (click)="approve(user)"
-                  [disabled]="user.role === 'admin'"
-                >
+                  [disabled]="user.role === 'admin'">
                   Approve as admin
                 </button>
               </td>
@@ -108,8 +90,7 @@
                 <button
                   class="btn btn-danger"
                   (click)="delete(user)"
-                  [disabled]="user.role === 'user'"
-                >
+                  [disabled]="user.role === 'user'">
                   Delete admin
                 </button>
               </td>

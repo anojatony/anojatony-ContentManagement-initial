@@ -16,8 +16,7 @@
         #adPost="ngForm"
         (ngSubmit)="adPost.form.valid && updatepost(posts)"
         class="frm"
-        enctype="multipart/form-data"
-      >
+        enctype="multipart/form-data">
         <h1>Update Your Post</h1>
         <div class="form-group">
           <label>Title *</label>
@@ -27,19 +26,10 @@
             name="title"
             placeholder="Title"
             [(ngModel)]="posts.title"
-            [ngClass]="{
-              'invalid-data': title.invalid,
-              'valid-data': title.valid
-            }"
-            #title="ngModel"
-            pattern="^[a-zA-Z0-9\s.'?-]+$"
-            required
-          />
+            [ngClass]="{'invalid-data': title.invalid,'valid-data': title.valid}" #title="ngModel" pattern="^[a-zA-Z0-9\s.'?-]+$" required/>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="title.invalid && title.touched"
-            >Enter Title</small
-          >
+            *ngIf="title.invalid && title.touched">Enter Title</small>
         </div>
         <br />
         <div class="form-group">
@@ -49,19 +39,10 @@
             name="author"
             placeholder="Author name"
             [(ngModel)]="posts.author"
-            [ngClass]="{
-              'invalid-data': author.invalid,
-              'valid-data': author.valid
-            }"
-            #author="ngModel"
-            pattern="^[a-zA-Z0-9\s.']+$"
-            required
-          />
+            [ngClass]="{'invalid-data': author.invalid,'valid-data': author.valid}" #author="ngModel" pattern="^[a-zA-Z0-9\s.']+$" required/>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="author.invalid && author.touched"
-            >Enter a Valid Author Name</small
-          >
+            *ngIf="author.invalid && author.touched">Enter a Valid Author Name</small>
         </div>
         <br />
         <div class="form-group">
@@ -73,16 +54,8 @@
             [(ngModel)]="posts.email"
             #email="ngModel"
             [disabled]="true"
-            [ngClass]="{
-              'invalid-data': email.invalid,
-              'valid-data': email.valid
-            }"
-            pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            required
-          />
-          <small style="color: black" *ngIf="email.invalid && email.touched"
-            >Enter a Valid Email Id</small
-          >
+            [ngClass]="{'invalid-data': email.invalid,'valid-data': email.valid}" pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+          <small style="color: black" *ngIf="email.invalid && email.touched">Enter a Valid Email Id</small>
         </div>
         <br />
         <div class="form-group">
@@ -94,18 +67,10 @@
             placeholder="Introduction"
             [(ngModel)]="posts.introduction"
             #introduction="ngModel"
-            [ngClass]="{
-              'invalid-data': introduction.invalid,
-              'valid-data': introduction.valid
-            }"
-            required
-            minlength="10"
-          />
+            [ngClass]="{'invalid-data': introduction.invalid,'valid-data': introduction.valid}" required minlength="10"/>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="introduction.invalid && introduction.touched"
-            >Write atleast a minimum of 10 characters</small
-          >
+            *ngIf="introduction.invalid && introduction.touched">Write atleast a minimum of 10 characters</small>
         </div>
         <br />
         <div class="form-group">
@@ -114,14 +79,7 @@
             [(ngModel)]="posts.content"
             #content="ngModel"
             name="content"
-            [ngClass]="{
-              'invalid-data': content.invalid,
-              'valid-data': content.valid
-            }"
-            required
-            [config]="ckeConfig"
-            debounce="500"
-          >
+            [ngClass]="{'invalid-data': content.invalid, 'valid-data': content.valid}" required [config]="ckeConfig" debounce="500">
           </ckeditor>
         </div>
         <br />
@@ -134,12 +92,7 @@
             name="category"
             #category="ngModel"
             style="border: 1px solid grey"
-            [ngClass]="{
-              'invalid-data': category.invalid,
-              'valid-data': category.valid
-            }"
-            required
-          >
+            [ngClass]="{'invalid-data': category.invalid, 'valid-data': category.valid}" required>
             <option value="">- Choose Category -</option>
             <option *ngFor="let category of categorys">
               {{ category.catname }}
@@ -156,18 +109,10 @@
             placeholder="dd-mm-yyyy"
             [(ngModel)]="posts.date"
             #date="ngModel"
-            [ngClass]="{
-              'invalid-data': date.invalid,
-              'valid-data': date.valid
-            }"
-            pattern="^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4}|[0-9]{2})$"
-            required
-          />
+            [ngClass]="{'invalid-data': date.invalid, 'valid-data': date.valid}" pattern="^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4}|[0-9]{2})$" required/>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="date.invalid && date.touched"
-            >Enter a valid date</small
-          >
+            *ngIf="date.invalid && date.touched">Enter a valid date</small>
         </div>
         <br />
         <div class="form-group">
@@ -179,8 +124,7 @@
             [(ngModel)]="posts.image"
             #image="ngModel"
             (change)="selectImage($event)"
-            required
-          />
+            required/>
         </div>
         <button type="submit" class="btu">UPDATE</button>
       </form>

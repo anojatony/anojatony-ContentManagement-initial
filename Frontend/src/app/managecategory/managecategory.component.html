@@ -20,59 +20,45 @@
           <a
             class="nav-link"
             routerLink="/blog"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Blog</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Blog</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/managecategory"
             routerLinkActive="active-route"
-            *ngIf="blogService.getValue()"
-            >Manage Category</a
-          >
+            *ngIf="blogService.getValue()">Manage Category</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/yourposts"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Your posts</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Your posts</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/createpost"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Create post</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Create post</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Login</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Login</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/signup"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Sign Up</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Sign Up</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             style="cursor: pointer"
             (click)="logout()"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Log Out</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Log Out</a>
         </li>
       </ul>
     </div>
@@ -83,15 +69,13 @@
     type="text"
     class="inpu form-control"
     [(ngModel)]="cat"
-    placeholder="Add Category"
-  /><button class="btn btn-danger" (click)="add()">Add Category</button>
+    placeholder="Add Category"/><button class="btn btn-danger" (click)="add()">Add Category</button>
 
   <div *ngIf="updatetoggle">
     <input
       type="text"
       class="inp form-control"
-      [(ngModel)]="updatecate.catname"
-    /><button class="btn btn-danger but" (click)="updatecat()">
+      [(ngModel)]="updatecate.catname"/><button class="btn btn-danger but" (click)="updatecat()">
       Update Category
     </button>
   </div>
@@ -101,8 +85,7 @@
         class="table table-bordered"
         id="dataTable"
         width="100%"
-        cellspacing="0"
-      >
+        cellspacing="0">
         <thead>
           <tr>
             <th>Choose</th>
@@ -116,8 +99,7 @@
                 type="checkbox"
                 (change)="check(category)"
                 (change)="change($event)"
-                [disabled]="checkIfOthersAreSelected"
-              />
+                [disabled]="checkIfOthersAreSelected"/>
             </td>
             <td style="text-align: center">{{ category.catname }}</td>
           </tr>
@@ -127,15 +109,13 @@
         <button
           class="btn btn-danger"
           (click)="update()"
-          style="margin-right: 2%"
-        >
+          style="margin-right: 2%">
           Update
         </button>
         <button
           class="btn btn-primary"
           (click)="delete()"
-          style="margin-right: 2%"
-        >
+          style="margin-right: 2%">
           Delete
         </button>
       </div>

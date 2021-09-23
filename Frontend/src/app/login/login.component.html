@@ -27,19 +27,11 @@
             #email="ngModel"
             [ngClass]="{
               'invalid-data': email.invalid && f.submitted,
-              'valid-data': email.valid && f.submitted
-            }"
-            [class.error-border]="email.invalid && f.submitted"
-            pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            required
-          />
+              'valid-data': email.valid && f.submitted}" [class.error-border]="email.invalid && f.submitted"
+            pattern="^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              (email.invalid && f.submitted) || (email.invalid && email.touched)
-            "
-            >Enter a Valid Email Id</small
-          >
+            *ngIf="(email.invalid && f.submitted) || (email.invalid && email.touched)">Enter a Valid Email Id</small>
         </div>
         <br />
         <div class="form-group">
@@ -57,17 +49,13 @@
             }"
             [class.error-border]="password.invalid && f.submitted"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%?&])[A-Za-z\d$@$!%?&]{8,}$"
-            required
-          />
+            required/>
           <small
             style="color: black; text-align: justify; font-weight: bold"
             *ngIf="
               (password.invalid && f.submitted) ||
-              (password.invalid && password.touched)
-            "
-            >Password should contain minimum 8 characters with at least one
-            uppercase, lowercase, special characters & digits.</small
-          >
+              (password.invalid && password.touched)">Password should contain minimum 8 characters with at least one
+            uppercase, lowercase, special characters & digits.</small>
         </div>
         <br />
         <button type="submit" class="btu">Sign In</button>

@@ -33,10 +33,6 @@ export class ManagecategoryComponent implements OnInit {
       this.categorys = JSON.parse(JSON.stringify(data));
     });
 
-    //   let categoryid = localStorage.getItem("editcategoryid");
-    //   this.blogService.updateCat(categoryid).subscribe((data)=>{
-    //   this.updatecate=JSON.parse(JSON.stringify(data));
-    // })
   }
 
   add() {
@@ -88,11 +84,6 @@ export class ManagecategoryComponent implements OnInit {
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/managecategory']);
   }
-  // anothercat(){
-  // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  // this.router.onSameUrlNavigation = 'reload';
-  // this.router.navigate(['/managecategory']);
-  // }
 
   delete() {
     if (this.event) {

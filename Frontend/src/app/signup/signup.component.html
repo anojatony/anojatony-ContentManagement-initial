@@ -16,8 +16,7 @@
     <div class="login-box">
       <form
         [formGroup]="registerForm"
-        (ngSubmit)="registerForm.valid && signUser()"
-      >
+        (ngSubmit)="registerForm.valid && signUser()">
         <h2>Create Your Free Account</h2>
         <div class="form-group">
           <label for="inputname">First name</label>
@@ -26,24 +25,13 @@
             class="form-control"
             placeholder="First name"
             name="firstname"
-            formControlName="firstname"
-          />
+            formControlName="firstname"/>
           <small
             style="color: red; font-weight: bolder"
-            *ngIf="
-              registerForm.get('firstname')?.touched &&
-              registerForm.get('firstname')?.hasError('required')
-            "
-            >** Please Enter Your First Name</small
-          >
+            *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.hasError('required')">** Please Enter Your First Name</small>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              registerForm.get('firstname')?.touched &&
-              registerForm.get('firstname')?.hasError('pattern')
-            "
-            >** Only alphabets are allowed</small
-          >
+            *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.hasError('pattern')">** Only alphabets are allowed</small>
         </div>
         <br />
         <div class="form-group">
@@ -53,24 +41,13 @@
             class="form-control"
             placeholder="Last name"
             name="lastname"
-            formControlName="lastname"
-          />
+            formControlName="lastname"/>
           <small
             style="color: red; font-weight: bolder"
-            *ngIf="
-              registerForm.get('lastname')?.touched &&
-              registerForm.get('lastname')?.hasError('required')
-            "
-            >** Please Enter Your Last Name</small
-          >
+            *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.hasError('required')">** Please Enter Your Last Name</small>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              registerForm.get('lastname')?.touched &&
-              registerForm.get('lastname')?.hasError('pattern')
-            "
-            >** Only alphabets are allowed</small
-          >
+            *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.hasError('pattern')">** Only alphabets are allowed</small>
         </div>
         <br />
         <div class="form-group">
@@ -80,58 +57,33 @@
             class="form-control"
             placeholder="Enter your email"
             name="email"
-            formControlName="email"
-          />
+            formControlName="email"/>
           <small
             style="color: red; font-weight: bolder"
-            *ngIf="
-              registerForm.get('email')?.touched &&
-              registerForm.get('email')?.hasError('required')
-            "
-            >** Please Enter Your Email</small
-          >
+            *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')">** Please Enter Your Email</small>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              registerForm.get('email')?.touched &&
-              registerForm.get('email')?.hasError('pattern')
-            "
-            >** Strictly follow the email format (eg: abc@gmail.com)</small
-          >
+            *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('pattern')">** Strictly follow the email format (eg: abc@gmail.com)</small>
         </div>
         <br />
         <div class="form-group">
-          <label for="pwd">Password</label
-          ><span id="strength"
-            ><small class="{{ color }}">
-              <b>{{ pwdmsg }}</b>
-            </small>
-          </span>
+          <label for="pwd">Password</label><span id="strength"><small class="{{ color }}"><b>{{ pwdmsg }}</b></small></span>
           <input
             type="password"
             class="form-control"
             placeholder="Enter your password"
             name="password"
             formControlName="password"
-            (keyup)="validatePassword()"
-          />
+            (keyup)="validatePassword()"/>
           <small
             style="color: red; font-weight: bolder"
             *ngIf="
               registerForm.get('password')?.touched &&
-              registerForm.get('password')?.hasError('required')
-            "
-            >** Please Enter Your Password</small
-          >
+              registerForm.get('password')?.hasError('required')">** Please Enter Your Password</small>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              registerForm.get('password')?.touched &&
-              registerForm.get('password')?.hasError('pattern')
-            "
-            >**Password should contain minimum 8 characters with at least one
-            uppercase, lowercase, special characters & digits.</small
-          >
+            *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.hasError('pattern')">**Password should contain minimum 8 characters with at least one
+            uppercase, lowercase, special characters & digits.</small>
         </div>
         <br />
         <div class="form-group">
@@ -141,24 +93,13 @@
             class="form-control"
             placeholder="Enter your phone number"
             name="phone"
-            formControlName="phone"
-          />
+            formControlName="phone"/>
           <small
             style="color: red; font-weight: bolder"
-            *ngIf="
-              registerForm.get('phone')?.touched &&
-              registerForm.get('phone')?.hasError('required')
-            "
-            >** Please Enter Your Phone number</small
-          >
+            *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('required')">** Please Enter Your Phone number</small>
           <small
             style="color: black; font-weight: bold"
-            *ngIf="
-              registerForm.get('phone')?.touched &&
-              registerForm.get('phone')?.hasError('pattern')
-            "
-            >** Phone number with 10 digits are only valid</small
-          >
+            *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('pattern')">** Phone number with 10 digits are only valid</small>
         </div>
         <br />
         <button type="submit" class="btu">Sign Up</button>

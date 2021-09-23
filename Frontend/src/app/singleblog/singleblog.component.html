@@ -20,58 +20,44 @@
           <a
             class="nav-link"
             routerLink="/blog"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Blog</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Blog</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/managecategory"
-            *ngIf="blogService.getValue()"
-            >Manage Category</a
-          >
+            *ngIf="blogService.getValue()">Manage Category</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/yourposts"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Your posts</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Your posts</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/createpost"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Create post</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Create post</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Login</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Login</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/signup"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Sign Up</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Sign Up</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             style="cursor: pointer"
             (click)="logout()"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Log Out</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Log Out</a>
         </li>
       </ul>
     </div>
@@ -87,8 +73,7 @@
         <br />
         <div
           [innerHTML]="post.content"
-          style="text-align: justify; margin-top: 4%"
-        ></div>
+          style="text-align: justify; margin-top: 4%"></div>
         <br />
       </div>
 
@@ -100,9 +85,7 @@
             margin-bottom: 5%;
             margin-top: 40%;
             color: brown;
-            font-weight: bold;
-          "
-        >
+            font-weight: bold;">
           Categories
         </h3>
         <div *ngFor="let category of categorys">
@@ -111,10 +94,7 @@
               margin-left: 40%;
               margin-bottom: 5%;
               cursor: pointer;
-              font-weight: bold;
-            "
-            routerLink="/category/{{ category.catname }}"
-          >
+              font-weight: bold;"routerLink="/category/{{ category.catname }}">
             {{ category.catname }}
           </h6>
         </div>

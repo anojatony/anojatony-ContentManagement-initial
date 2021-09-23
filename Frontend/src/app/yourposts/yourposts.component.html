@@ -10,8 +10,7 @@
       data-target="#navbarText"
       aria-controls="navbarText"
       aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarText">
@@ -20,59 +19,45 @@
           <a
             class="nav-link"
             routerLink="/blog"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Blog</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Blog</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/managecategory"
-            *ngIf="blogService.getValue()"
-            >Manage Category</a
-          >
+            *ngIf="blogService.getValue()">Manage Category</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/yourposts"
             routerLinkActive="active-route"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Your posts</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Your posts</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/createpost"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Create post</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Create post</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Login</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Login</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             routerLink="/signup"
-            *ngIf="!blogService.getValue() && !blogService.getUser()"
-            >Sign Up</a
-          >
+            *ngIf="!blogService.getValue() && !blogService.getUser()">Sign Up</a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
             style="cursor: pointer"
             (click)="logout()"
-            *ngIf="blogService.getValue() || blogService.getUser()"
-            >Log Out</a
-          >
+            *ngIf="blogService.getValue() || blogService.getUser()">Log Out</a>
         </li>
       </ul>
     </div>
@@ -102,23 +87,20 @@
                   style="cursor: pointer"
                   (click)="update(post)"
                   *ngIf="user.email === post.email"
-                  >Update</a
-                >
+                  >Update</a >
                 <a
                   rouerLink=""
                   class="btn btn-success"
                   style="margin-left: 5%; cursor: pointer"
                   (click)="delete(post)"
                   *ngIf="user.email === post.email"
-                  >Delete</a
-                >
+                  >Delete</a>
                 <a
                   rouerLink=""
                   class="btn btn-danger"
                   style="float: right; cursor: pointer"
                   (click)="singleBlog(post)"
-                  >Read More</a
-                >
+                  >Read More</a>
               </div>
             </div>
           </div>

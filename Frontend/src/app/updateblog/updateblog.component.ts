@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import Swal from 'sweetalert2';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-updateblog',
@@ -31,7 +32,7 @@ export class UpdateblogComponent implements OnInit {
     },
   ];
 
-  constructor(private blogService: BlogService, private router: Router) {}
+  constructor(private blogService: BlogService, private router: Router,private _location: Location) {}
 
   ngOnInit(): void {
     this.ckeConfig = {
@@ -84,6 +85,7 @@ export class UpdateblogComponent implements OnInit {
       timer: 1500,
     });
     // alert("Updated Successfully!");
-    this.router.navigate(['/blog']);
+    // this.router.navigate(['/blog']);
+    this._location.back();
   }
 }

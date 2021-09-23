@@ -62,16 +62,6 @@ export class CategoryComponent implements OnInit {
   update(post: any) {
     localStorage.setItem('updateblog', post._id.toString());
     this._router.navigate(['updateblog']);
-    // let admin=localStorage.getItem("admin")
-    // if(admin!=null){
-    //   this.router.navigate(['updateblog']);
-    // }
-    // else if(this.user.email==post.email){
-    //   this.router.navigate(['updateblog']);
-    // }
-    // else if(this.user.email!=post.email){
-    //   alert("You are not the owner of this post!")
-    // }
   }
 
   delete(post: any) {
