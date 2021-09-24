@@ -38,28 +38,20 @@ export class YourpostsComponent implements OnInit {
   ngOnInit(): void {
     let userid = localStorage.getItem('userid');
     this.blogService.getuser(userid)
-      .pipe(
-        map((data) => {
-          this.user = JSON.parse(JSON.stringify(data));
+      .pipe(map((data) => {this.user = JSON.parse(JSON.stringify(data));
           return this.user;
         }),
-        mergeMap((user) => this.blogService.yourPosts(user.email))
-      )
-      .subscribe((data) => {
-        this.posts = JSON.parse(JSON.stringify(data));
+        mergeMap((user) => this.blogService.yourPosts(user.email)))
+        .subscribe((data) => {this.posts = JSON.parse(JSON.stringify(data));
       });
 
     let adminid = localStorage.getItem('admin');
     this.blogService.getuser(adminid)
-      .pipe(
-        map((data) => {
-          this.user = JSON.parse(JSON.stringify(data));
+      .pipe(map((data) => {this.user = JSON.parse(JSON.stringify(data));
           return this.user;
         }),
-        mergeMap((user) => this.blogService.yourPosts(user.email))
-      )
-      .subscribe((data) => {
-        this.posts = JSON.parse(JSON.stringify(data));
+        mergeMap((user) => this.blogService.yourPosts(user.email)))
+       .subscribe((data) => {this.posts = JSON.parse(JSON.stringify(data));
       });
   }
 

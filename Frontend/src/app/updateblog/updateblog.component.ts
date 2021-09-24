@@ -76,7 +76,7 @@ export class UpdateblogComponent implements OnInit {
     formData.append('id', posts);
 
     this.blogService.editBlog(formData);
-    console.log('called');
+    
     Swal.fire({
       position: 'top-end',
       icon: 'success',

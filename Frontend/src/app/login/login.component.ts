@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('rootuser', res.rootuser);
           this._router.navigate(['/superadmin']);
         } else if (res.user) {
-          // localStorage.setItem('user', res.user)
           localStorage.setItem('userid', res.user._id);
           this._router.navigate(['/blog']);
         } else if (res.token) {

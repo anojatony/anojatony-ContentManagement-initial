@@ -85,7 +85,7 @@ export class CreatepostComponent implements OnInit {
 
     if (this.user.email == this.posts.email) {
       this.blogService.newPost(formData);
-      console.log('Called');
+    
       Swal.fire({
         position: 'top-end',
         icon: 'success',
